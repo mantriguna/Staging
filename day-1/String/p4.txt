@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main
+{
+    public static String Compress(String s){
+        StringBuilder a = new StringBuilder();
+        int i=0,j=0;
+        int count=0;
+        while(j<s.length()){
+            if(s.charAt(i)==s.charAt(j)){
+                count+=1;
+                j++;
+            }
+            else{
+                a.append(s.charAt(i));
+                a.append(String.valueOf(count));
+                i=j;
+                count=0;
+            }
+            
+        }
+        if(count > 0) {
+            a.append(s.charAt(i));
+            a.append(count);
+        }
+        
+        return a.toString();
+    }
+    
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String s = sc.next();
+        System.out.print(Compress(s));
+	}
+}

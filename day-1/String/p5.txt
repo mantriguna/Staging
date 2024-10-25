@@ -1,0 +1,30 @@
+import java.util.*;
+class  NonRepeatingCharcater {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+       String str=sc.next();
+       for(int i=0;i<str.length();i++)
+       {
+           char ch=str.charAt(i);
+           boolean status=find(str,ch,i);
+           if(status)
+           {
+               System.out.println(ch);
+               break;
+           }
+           
+       }
+    }
+    public static boolean find(String str,char ch,int n)
+    {
+        for(int i=0;i<str.length();i++)
+        {
+            if(ch==str.charAt(i) && n!=i)
+            {
+                return false;
+            }
+            
+        }
+        return true;
+    }
+}
